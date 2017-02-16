@@ -2,6 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
+// splitted and lazy load the app
+// const App = reslove => { require(['./App'], reslove) }
 import router from './router'
 
 /* eslint-disable no-new */

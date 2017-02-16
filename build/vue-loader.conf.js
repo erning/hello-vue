@@ -13,5 +13,9 @@ module.exports = {
     require('autoprefixer')({
       browsers: ['last 2 versions']
     })
-  ]
+  ],
+  cssModules: {
+    localIdentName: '[local]-[hash:hex:6]',
+    camelCase: true
+  }
 }
