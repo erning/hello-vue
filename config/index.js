@@ -28,13 +28,7 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      'backend': {
-        filter: function (pathname, req) {
-          if (pathname === '/' && req.method === 'GET') {
-            return true
-          }
-          return pathname.match('^/api')
-        },
+      '/api': {
         target: 'http://localhost:5000'
       }
     },

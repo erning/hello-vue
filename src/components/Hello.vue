@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1 v-on:click="getServerTime()">{{ msg }}</h1>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -21,18 +21,38 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'hello',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App'
     }
+  },
+  methods: {
+    getServerTime: function () {
+      let vm = this
+      axios.get('/api/misc.GetServerTime')
+        .then(function (response) {
+          vm.msg = response.data.payload
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+    }
+  },
+  mounted () {
+    this.getServerTime()
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+h1 {
+  cursor: pointer;
+}
 h1, h2 {
   font-weight: normal;
 }
