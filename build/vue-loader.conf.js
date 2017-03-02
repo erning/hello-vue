@@ -9,11 +9,16 @@ module.exports = {
       : config.dev.cssSourceMap,
     extract: isProduction
   }),
-  postcss: [
-    require('autoprefixer')({
-      browsers: ['last 2 versions']
-    })
-  ],
+  postcss: {
+    plugins: [
+      require('postcss-cssnext')({
+        browsers: ['last 2 versions']
+      })
+    ],
+    options: {
+      autoprefixer: false
+    }
+  },
   cssModules: {
     localIdentName: '[local]-[hash:hex:6]',
     camelCase: true
