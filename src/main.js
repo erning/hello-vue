@@ -3,7 +3,7 @@
 import Vue from 'vue'
 import App from './App'
 // splitted and lazy load the app
-// const App = reslove => { require(['./App'], reslove) }
+// const App = resolve => { require(['./App'], resolve) }
 import router from './router'
 
 /* eslint-disable no-new */
